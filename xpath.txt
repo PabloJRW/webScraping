@@ -1,0 +1,6 @@
+Links = //div[@class="main-box"]/div[@class="main-box-block undefined"]/div[@class="main-box-twocolumns horizontal"]/div[@class="story-box"]/div[@class="story-box-right"]/text-fill/a/@href
+Titulo = //article/div[@class="article-header"]/h1/text()
+Resumen = //article/div[@class="article-header"]/div[@class="article-summary"]/text()
+Cuerpo = //article/div[@class="article-content"]/p[not(@class)]/text()
+
+
