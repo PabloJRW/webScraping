@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
+HOME_URL = 'https://www.pagina12.com.ar'
+
 def getHomePage(HOME_URL):
     """Recibe el enlace de la página y hace la consulta"""
     
@@ -70,7 +72,7 @@ def getInfo(HOME_URL, sections_news_links):
                     body = [p.get_text() for p in body]
                     
                     info.append({'title': title, 
-                                 'date': date
+                                 'date': date,
                                  'summary': summary,
                                  'body' : body})
                     
@@ -80,3 +82,16 @@ def getInfo(HOME_URL, sections_news_links):
                 print(e)
                     
     return info
+
+
+def runScraper(HOME_URL):
+    
+    home = getHomePage(HOME_URL)
+    navs = getNavSections(home)
+    sects = getSectionNewsLinks(navs)
+    info = getInfo(HOME_URL, sects)
+    return info
+
+
+if __name__ == '__main__':
+    runScraper()
